@@ -19,6 +19,9 @@ def test_create_lookup_tables(create_lookup_tables):
         Moe_Szyslak: Homer, hey, you should not drink to forget your problems.
         Barney_Gumble: Yeah, you should only drink to enhance your social skills.'''
 
+        test_text = test_text.lower()
+        test_text = test_text.split()
+
         vocab_to_int, int_to_vocab = create_lookup_tables(test_text)
 
         # Check types
@@ -62,7 +65,7 @@ def test_create_lookup_tables(create_lookup_tables):
                 len(missmatches),
                 *missmatches[0])
 
-        assert len(vocab_to_int) > len(set(test_text.split()))/2,\
+        assert len(vocab_to_int) > len(set(test_text))/2,\
             'The length of vocab seems too small.  Found a length of {}'.format(len(vocab_to_int))
 
     _print_success_message()
