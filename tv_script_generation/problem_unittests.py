@@ -279,7 +279,7 @@ def test_get_tensors(get_tensors):
 
 def test_pick_word(pick_word):
     with tf.Graph().as_default():
-        test_probabilities = [0.1, 0.8, 0.05, 0.05]
+        test_probabilities = np.array([0.1, 0.8, 0.05, 0.05])
         test_int_to_vocab = {word_i: word for word_i, word in enumerate(['this', 'is', 'a', 'test'])}
 
         pred_word = pick_word(test_probabilities, test_int_to_vocab)
