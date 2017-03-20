@@ -254,7 +254,7 @@ def test_build_nn(build_nn):
     _print_success_message()
 
 
-def test_get_tenors(get_tenors):
+def test_get_tensors(get_tensors):
     test_graph = tf.Graph()
     with test_graph.as_default():
         test_input = tf.placeholder(tf.int32, name='input')
@@ -262,7 +262,7 @@ def test_get_tenors(get_tenors):
         test_final_state = tf.placeholder(tf.int32, name='final_state')
         test_probs = tf.placeholder(tf.float32, name='probs')
 
-    input_text, initial_state, final_state, probs = get_tenors(test_graph)
+    input_text, initial_state, final_state, probs = get_tensors(test_graph)
 
     # Check correct tensor
     assert input_text == test_input,\
